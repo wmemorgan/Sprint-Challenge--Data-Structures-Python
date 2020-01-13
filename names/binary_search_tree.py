@@ -57,16 +57,9 @@ class BinarySearchTree:
     def get_max(self):
         # check for right nodes
         if self.right is None:
-            # NO - return parent node value
             return self.value
-        # YES - evaluate right subtrees
-        else:
-            subtree = self.right
-            while subtree:
-                if subtree.right is None:
-                    return subtree.value
-                else:
-                    subtree = subtree.right
+
+        return self.right.get_max()
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
