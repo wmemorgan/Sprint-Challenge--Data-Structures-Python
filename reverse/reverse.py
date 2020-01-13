@@ -42,6 +42,29 @@ class LinkedList:
     # if we've gotten here, then the target node isn't in our list
     return False
 
+  # Created method to facilitate confirming linked list contents
+  def print_list(self):
+    node = self.head
+    print("list contents:")
+
+    while node:
+      print(node.value)
+      node = node.next_node
+
+
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+    prev_node = None
+    curr_node = self.head
+    end = self.head
+
+    while curr_node:
+      # Advance end to the next node
+      end = end.next_node
+      # Switch next_node pointers to prev_node variable
+      curr_node.next_node = prev_node
+      # Store current node in prev_node variable
+      prev_node = curr_node
+      # Move previous node value to top of the stack
+      self.add_to_head(prev_node.value)
+      # Assign end to curr_node variable
+      curr_node = end
